@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-12-20T15:02:15.944Z",
+    "end": "2022-12-20T15:02:56.505Z",
+    "duration": 40561,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bf0007a7-b059-49b1-982d-27aeb88f6ebc",
+      "title": "",
+      "fullFile": "cypress\\e2e\\1-getting-started\\iswFinanace.cy.js",
+      "file": "cypress\\e2e\\1-getting-started\\iswFinanace.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3ce28e04-046d-471b-b113-e093ecfb1d8f",
+          "title": "visit Verve Access",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should test for url and valid CORPORATE_ADMIN logon",
+              "fullTitle": "visit Verve Access should test for url and valid CORPORATE_ADMIN logon",
+              "timedOut": null,
+              "duration": 39637,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//cy.get('.ant-dropdown-link > .sidebar-svg').click()\n//cy.get('.red').click()\n//cy.title().should('eq', 'Verve Access')\ncy.location('protocol').should('eq', 'https:'); // /cy.contains('Get Started Now').click({timeout : 2000})\ncy.url().should('include', 'admin');\ncy.reload(); //cy.hash().should('include', '#/auth')\nexpect(Cypress.env()).to.contain({\n  FOO: '42',\n  BAR: 'baz'\n});\nexpect(Cypress.env('my-var')).to.equal('ok'); //check check\ncy.get('form').within($form => {\n  //cy.get('input[type=\"email\"]').type('prince.uyosue@interswitchgroup.com')\n  cy.get('input[type=\"email\"]').type(Cypress.env('username')); //cy.get('input[type=\"password\"]').type('E-Royalty4321')\n  cy.get('#password').type('E-Royalty4321');\n  cy.get('#login').click({\n    timeout: 2000\n  });\n  cy.wait(9000); //cy.root().submit({timeout : 2000})\n  // cy.get('.input-container').dblclick().type('fish', {force : true})\n  cy.get('.input-container > svg > path'); //cy.get('.search-input').type('fish')\n  cy.get(':nth-child(1) > #table-dropdown > .anticon > svg').trigger('mouseover'); //cy.get('.search-input', { includeShadowDom: true }).type('fish')\n  //cy.get('.search-input').invoke('show').type('fish')\n  //cy.contains('Search by Report Name, Institution Name and Approved By...').invoke('show').type('fish')\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.input-container > svg > path`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.input-container > svg > path`, but never found it.\n    at Context.eval (https://verve-access-customer.k8.isw.la/__cypress/tests?p=cypress\\e2e\\1-getting-started\\iswFinanace.cy.js:135:10)",
+                "diff": null
+              },
+              "uuid": "a9a9db88-976d-4159-a5a4-9be33e2c629b",
+              "parentUUID": "3ce28e04-046d-471b-b113-e093ecfb1d8f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "a9a9db88-976d-4159-a5a4-9be33e2c629b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 39637,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-12-20T15:11:37.588Z",
+    "end": "2022-12-20T15:11:52.456Z",
+    "duration": 14868,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4f86b45b-d224-4044-b011-f1d190098c2b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\1-getting-started\\SchemeAdmin.cy.js",
+      "file": "cypress\\e2e\\1-getting-started\\SchemeAdmin.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "76efaa94-3984-402c-ab20-b76ca47fbd74",
+          "title": "visit Verve Access",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should test Vmmr Add script",
+              "fullTitle": "visit Verve Access should test Vmmr Add script",
+              "timedOut": null,
+              "duration": 14312,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.ant-dropdown-link > .sidebar-svg').click();\ncy.get('.red').click();\ncy.url().should('include', 'admin');\ncy.reload();\ncy.get('form').within($form => {\n  cy.get('input[type=\"email\"]').type('phoenix.shed-okara@interswitchgroup.com');\n  cy.get('input[type=\"password\"]').type('Mixmax$900');\n  cy.get('#login').click({\n    timeout: 2000\n  });\n  cy.wait(18000); //cy.root().submit({timeout : 2000})\n});\ncy.get('#burger-cont').click();\ncy.get('#sidebar > .sidebar-container > #side-nav > .isw-sideBarNav').scrollTo('bottom');\ncy.get('#sidebar > .sidebar-container > #side-nav > .isw-sideBarNav > :nth-child(12) > .isw-sideBarNavLink > .isw-sideBarNavLabel').click();\ncy.wait(8000);\ncy.get('.title').should('be.visible');\ncy.get('.add-button-container > :nth-child(1) > .d-flx').click();\ncy.wait(8000); // file upload\ncy.get('form').within($form => {\n  cy.get('input[name=\"name\"]').type('testname');\n  /*cy.get('#browseDiv').attachFile('files/VMMR_Sample_Script.txt', {force: true})        \n  cy.get('.drag-drop-input').within(() => {\n    cy.get('#browseDiv').as('BIgupload')\n    cy.get('@BIgupload').click(260, -50, { force: true } )\n    cy.contains('browse').click(20, -50, { force: true })\n    //cy.get('.browseDiv').attachFile('files/VMMR_Sample_Script.txt')\n    //click({force:true})\n    //cy.contains('browse').click()\n    cy.wait(8000)\n      //click({force:true})\n    }) */\n  //cy.rightclick('.browseDiv')\n  cy.wait(8000); //cy.get('').attachFile('files/VMMR_Sample_Script.txt');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.ant-dropdown-link > .sidebar-svg`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.ant-dropdown-link > .sidebar-svg`, but never found it.\n    at Context.eval (https://verve-access-customer.k8.isw.la/__cypress/tests?p=cypress\\e2e\\1-getting-started\\SchemeAdmin.cy.js:373:8)",
+                "diff": null
+              },
+              "uuid": "b420d700-8891-48cd-8a02-60d2aa4f38de",
+              "parentUUID": "76efaa94-3984-402c-ab20-b76ca47fbd74",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "b420d700-8891-48cd-8a02-60d2aa4f38de"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 14312,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

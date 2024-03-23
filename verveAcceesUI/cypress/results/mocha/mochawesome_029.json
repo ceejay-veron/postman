@@ -1,0 +1,131 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-01-03T14:56:15.159Z",
+    "end": "2023-01-03T14:59:28.713Z",
+    "duration": 193554,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a1da6ebc-f059-4f89-9981-7298d8e55c09",
+      "title": "",
+      "fullFile": "cypress\\e2e\\1-getting-started\\VerveAccess-CorpUser.cy.js",
+      "file": "cypress\\e2e\\1-getting-started\\VerveAccess-CorpUser.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "This test checks for valid login for a user with corporate user role on verve access corporate portal",
+          "fullTitle": "This test checks for valid login for a user with corporate user role on verve access corporate portal",
+          "timedOut": null,
+          "duration": 28944,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "cy.visit('https://verve-access-customer.k8.isw.la/corporate/signin'); //To test for login using an email address that does not exist on verve access\ncy.get(':nth-child(1) > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('joswitches@qa.team');\ncy.get(':nth-child(2) > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('Passw0rd123@456');\ncy.get('#login').click();\ncy.wait(16000);\ncy.get('#burger-cont').click();\ncy.get('#sidebar > .sidebar-container > #side-nav > .isw-sideBarNav > :nth-child(7) > .isw-sideBarNavLink').click();\ncy.reload();",
+          "err": {
+            "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#burger-cont`, but never found it.",
+            "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#burger-cont`, but never found it.\n    at Context.eval (https://verve-access-customer.k8.isw.la/__cypress/tests?p=cypress\\e2e\\1-getting-started\\VerveAccess-CorpUser.cy.js:107:6)",
+            "diff": null
+          },
+          "uuid": "d8a36aca-ecff-421f-ad05-b696b57ea61f",
+          "parentUUID": "a1da6ebc-f059-4f89-9981-7298d8e55c09",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "This test logs the corporate user into the Verve Access portal to search and filter VMMR reports",
+          "fullTitle": "This test logs the corporate user into the Verve Access portal to search and filter VMMR reports",
+          "timedOut": null,
+          "duration": 116998,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.visit('https://verve-access-customer.k8.isw.la/corporate/signin');\ncy.get(':nth-child(1) > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('joswitch@qa.team');\ncy.get(':nth-child(2) > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('Passw0rd@456');\ncy.get('#login').click();\ncy.wait(16000);\ncy.get('#burger-cont').click();\ncy.get('#sidebar > .sidebar-container > #side-nav > .isw-sideBarNav > :nth-child(7) > .isw-sideBarNavLink').click();\ncy.reload(); //To search for a pending report by reportName\ncy.get('.input-container').type('PRO-DEC-VMMR-PLAIN');\ncy.get('.input-container > .d-flx').click();\ncy.wait(4000);\ncy.contains('PRO-DEC-VMMR-PLAIN-01');\ncy.reload(); //To search for a pending report by Corporate user's Name\ncy.get('.input-container').type('Olanre');\ncy.get('.input-container > .d-flx').click();\ncy.wait(4000);\ncy.contains('Joe Olanre');\ncy.reload(); //To search for a pending report by Approver's Name\ncy.get('.input-container').type('Oge');\ncy.get('.input-container > .d-flx').click();\ncy.wait(4000);\ncy.contains('No data to display');\ncy.reload(); //To search for an approved report by reportName\ncy.get('.ant-tabs-nav > :nth-child(1) > :nth-child(2) > span').click();\ncy.get('.input-container').type('PRO-DEC-VMMR-TEST');\ncy.get('.input-container > .d-flx').click();\ncy.wait(4000);\ncy.contains('PRO-DEC-VMMR-TEST-02');\ncy.get('.input-container').clear(); //To search approved reports by Corporate User's name\ncy.get('.ant-tabs-nav > :nth-child(1) > :nth-child(2) > span').click();\ncy.get('.input-container').type('Joe');\ncy.get('.input-container > .d-flx').click();\ncy.wait(4000);\ncy.contains('Joe Olanre'); //To search approved reports by Corporate_Admin's Name\ncy.get('.input-container').clear().type('Oge');\ncy.get('.input-container > .d-flx').click();\ncy.wait(4000);\ncy.contains('No data to display'); //To search for a declined report by reportName\ncy.get('.ant-tabs-nav > :nth-child(1) > :nth-child(3) > span').click();\ncy.get('.input-container').type('PRO-DEC-VMMR-PLAIN');\ncy.get('.input-container > .d-flx').click();\ncy.wait(4000);\ncy.contains('PRO-DEC-VMMR-PLAIN-02'); //To search declined reports by Corporate User's name\ncy.get('.input-container').clear().type('Joe');\ncy.get('.input-container > .d-flx').click();\ncy.wait(4000);\ncy.contains('Joe Olanre'); //To search declined reports by Corporate_Admin's Name\ncy.get('.input-container').clear().type('Oge');\ncy.get('.input-container > .d-flx').click();\ncy.wait(4000);\ncy.contains('No data to display');\ncy.reload(); //To Filter Pending reports by Date - Today\ncy.get('.anticon-caret-down > svg > path').click();\ncy.get('.ranges > ul > .active').click();\ncy.wait(4000);\ncy.reload(); //To Filter Pending reports by Date - Yesterday\ncy.get('.anticon-caret-down > svg > path').click();\ncy.get('[data-range-key=\"Yesterday\"]').click();\ncy.wait(4000);\ncy.reload(); //To Filter Pending reports by Date - Last Seven Days \ncy.get('.anticon-caret-down > svg > path').click();\ncy.get('[data-range-key=\"Last 7 Days\"]').click();\ncy.wait(4000);\ncy.reload();",
+          "err": {},
+          "uuid": "377c8c44-fe05-4726-9a70-dbaccc0af119",
+          "parentUUID": "a1da6ebc-f059-4f89-9981-7298d8e55c09",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "This logs the corporate user into the verve access portal and filters VMMR Reports by date range",
+          "fullTitle": "This logs the corporate user into the verve access portal and filters VMMR Reports by date range",
+          "timedOut": null,
+          "duration": 46715,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.visit('https://verve-access-customer.k8.isw.la/corporate/signin');\ncy.get(':nth-child(1) > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('joswitch@qa.team');\ncy.get(':nth-child(2) > .MuiFormControl-root > .MuiInputBase-root > .MuiInputBase-input').type('Passw0rd@456');\ncy.get('#login').click();\ncy.wait(16000);\ncy.get('#burger-cont').click();\ncy.get('#sidebar > .sidebar-container > #side-nav > .isw-sideBarNav > :nth-child(7) > .isw-sideBarNavLink').click(); //To Filter Pending reports by Date - Today\ncy.get('.anticon-caret-down > svg > path').click();\ncy.get('.ranges > ul > .active').click();\ncy.wait(4000);\ncy.reload(); //To Filter Pending reports by Date - Yesterday\ncy.get('.anticon-caret-down > svg > path').click();\ncy.get('[data-range-key=\"Yesterday\"]').click();\ncy.wait(4000);\ncy.reload(); //To Filter Pending reports by Date - Last Seven Days \ncy.get('.anticon-caret-down > svg > path').click();\ncy.get('[data-range-key=\"Last 7 Days\"]').click();\ncy.wait(4000);\ncy.reload();",
+          "err": {},
+          "uuid": "4217ec05-8046-4286-a84f-3da796a93633",
+          "parentUUID": "a1da6ebc-f059-4f89-9981-7298d8e55c09",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "377c8c44-fe05-4726-9a70-dbaccc0af119",
+        "4217ec05-8046-4286-a84f-3da796a93633"
+      ],
+      "failures": [
+        "d8a36aca-ecff-421f-ad05-b696b57ea61f"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 192657,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

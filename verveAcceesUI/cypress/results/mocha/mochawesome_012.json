@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-12-20T15:23:21.024Z",
+    "end": "2022-12-20T15:23:39.387Z",
+    "duration": 18363,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "43ddcca8-b22d-48da-970e-3b763a218cfb",
+      "title": "",
+      "fullFile": "cypress\\e2e\\1-getting-started\\iswOperation.cy.js",
+      "file": "cypress\\e2e\\1-getting-started\\iswOperation.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "311103a1-2cd1-4fda-b5c8-183cb1927221",
+          "title": "visit Verve Access",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should test for url and valid CORPORATE_ADMIN logon",
+              "fullTitle": "visit Verve Access should test for url and valid CORPORATE_ADMIN logon",
+              "timedOut": null,
+              "duration": 17697,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//cy.get('.ant-dropdown-link > .sidebar-svg').click()\n//cy.get('.red').click()\n//cy.title().should('eq', 'Verve Access')\ncy.location('protocol').should('eq', 'https:'); // /cy.contains('Get Started Now').click({timeout : 2000})\ncy.url().should('include', 'admin');\ncy.reload(); //cy.hash().should('include', '#/auth')\ncy.get('form').within($form => {\n  cy.get('input[type=\"email\"]').type('mary.uwadione@interswitchgroup.com');\n  cy.get('input[type=\"password\"]').type('red212switcH$');\n  cy.get('#login').click({\n    timeout: 2000\n  });\n  cy.wait(9000); //cy.root().submit({timeout : 2000})\n  //cy.get('.input-container').dblclick().type('fish', {force : true})\n  //cy.get('[aria-selected=\"false\"] > span').click()\n  //cy.get(':nth-child(1) > #table-dropdown > .anticon > svg').trigger('mouseover')\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `form`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `form`, but never found it.\n    at Context.eval (https://verve-access-customer.k8.isw.la/__cypress/tests?p=cypress\\e2e\\1-getting-started\\iswOperation.cy.js:118:8)",
+                "diff": null
+              },
+              "uuid": "36e8fee8-b0b3-48f0-a27b-94af88414466",
+              "parentUUID": "311103a1-2cd1-4fda-b5c8-183cb1927221",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "36e8fee8-b0b3-48f0-a27b-94af88414466"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 17697,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

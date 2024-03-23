@@ -1,0 +1,3663 @@
+{
+	"info": {
+		"_postman_id": "2b58d73e-14a2-4bdf-b576-de962dd62a0d",
+		"name": "Report",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26074390",
+		"_collection_link": "https://lively-resonance-59975.postman.co/workspace/Current-Verve-Access-Workspace~506d5733-c4cb-4e8b-8c62-e04293df9b2f/collection/26074470-2b58d73e-14a2-4bdf-b576-de962dd62a0d?action=share&creator=26074390&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Get Verve Admin Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"\r",
+									"\r",
+									"postman.setEnvironmentVariable(\"verve_accesstoken\", \"Bearer \"+jsonData.payload.token); \r",
+									"\r",
+									"pm.test(\"user login is successful\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"email\":\"verve.admin@interswitchgroup.com\",\r\n    \"password\": \"Password@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/Auth/Token",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"Token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Verve User Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"",
+									"postman.setEnvironmentVariable(\"verveuser_token\", \"Bearer \"+jsonData.payload.token); ",
+									"",
+									"pm.test(\"user login is successful\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"    ",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"verve.user@interswitchgroup.com\",\r\n    \"password\": \"Password@123\"\r\n}\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/Auth/Token",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"Token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Isw Operations Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"",
+									"postman.setEnvironmentVariable(\"isw_operations\", \"Bearer \"+jsonData.payload.token); ",
+									"",
+									"pm.test(\"user login is successful\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"    ",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"isw.operations@interswitchgroup.com\",\r\n    \"password\": \"Password@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/Auth/Token",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"Token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Isw Finance Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"",
+									"postman.setEnvironmentVariable(\"isw_finance\", \"Bearer \"+jsonData.payload.token); ",
+									"",
+									"pm.test(\"user login is successful\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"    ",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"email\":\"isw.finance@interswitchgroup.com\",\r\n    \"password\": \"Password@123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/Auth/Token",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"Token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Corp Admin Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"",
+									"postman.setEnvironmentVariable(\"corp-accesstoken\", \"Bearer \"+jsonData.payload.token); ",
+									"",
+									"pm.test(\"user login is successful\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"    ",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"grande_corp@qa.team\",\r\n    \"password\": \"Password123\"\r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/auth/token",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Corp User Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"",
+									"postman.setEnvironmentVariable(\"corpusertoken\", \"Bearer \"+jsonData.payload.token); ",
+									"",
+									"pm.test(\"user login is successful\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"    ",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"grande@qa.team\",\r\n    \"password\": \"Password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/auth/token",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Issuer user Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"\r",
+									"\r",
+									"postman.setEnvironmentVariable(\"issuer_user\", \"Bearer \"+jsonData.payload.token); \r",
+									"\r",
+									"pm.test(\"user login is successful\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"njoku102@qa.team\",\r\n    \"password\": \"Password123@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/auth/token",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Issuer Admin Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"\r",
+									"\r",
+									"postman.setEnvironmentVariable(\"issuer_admin\", \"Bearer \"+jsonData.payload.token); \r",
+									"\r",
+									"pm.test(\"user login is successful\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"njoku101@qa.team\",\r\n    \"password\": \"Password123@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/auth/token",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Acquirer Admin Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"",
+									"postman.setEnvironmentVariable(\"acquirer_admin\", \"Bearer \"+jsonData.payload.token); ",
+									"",
+									"pm.test(\"user login is successful\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"    ",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"Kings101@qa.team\",\r\n    \"password\": \"Password123@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/auth/token",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Acquirer User Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"",
+									"postman.setEnvironmentVariable(\"acquirer_user\", \"Bearer \"+jsonData.payload.token); ",
+									"",
+									"pm.test(\"user login is successful\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"    ",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"king102@qa.team\",\r\n    \"password\": \"Password123@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/auth/token",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get CardPerso User Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"",
+									"postman.setEnvironmentVariable(\"perso_user\", \"Bearer \"+jsonData.payload.token); ",
+									"",
+									"pm.test(\"user login is successful\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"    ",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"alabss@qa.team\",\r\n    \"password\": \"Password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/auth/token",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get CardPerso Admin Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"",
+									"postman.setEnvironmentVariable(\"perso_admin\", \"Bearer \"+jsonData.payload.token); ",
+									"",
+									"pm.test(\"user login is successful\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"    ",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"alabs@qa.team\",\r\n    \"password\": \"Password12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/auth/token",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Add New Report - Corp User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportDate\", \"reportType\", \"organizationId\", \"locale\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"modifiedBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment')\r",
+									"\r",
+									"pm.environment.set('currentdate', moment().format((\"DD/MM/yyyy\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corpusertoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Report 2.xlsx"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Corporate Blog {{ran}}&ReportDate=09/06/2023&Locale=en-gb&Remarks=New report uploaded today for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Corporate Blog {{ran}}"
+								},
+								{
+									"key": "ReportDate",
+									"value": "09/06/2023"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a",
+									"disabled": true
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remarks",
+									"value": "New report uploaded today for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Corp Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportDate\", \"reportType\", \"organizationId\", \"locale\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"modifiedBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment')\r",
+									"\r",
+									"pm.environment.set('currentdate', moment().format((\"DD/MM/yyyy\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Script.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Corporate Tells{{ran}}&ReportDate=09/06/2023&Locale=en-gb&Remark=New report uploaded today by Amelia Huffington for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Corporate Tells{{ran}}"
+								},
+								{
+									"key": "ReportDate",
+									"value": "09/06/2023"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a",
+									"disabled": true
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Issuer Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportDate\", \"reportType\", \"organizationId\", \"locale\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"modifiedBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment')\r",
+									"\r",
+									"pm.environment.set('currentdate', moment().format((\"DD/MM/yyyy\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{issuer_admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Script.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Issuer Submissions{{ran}}&ReportDate=09/06/2023&Locale=en-gb&Remark=New report uploaded today by Amelia Huffington for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Issuer Submissions{{ran}}"
+								},
+								{
+									"key": "ReportDate",
+									"value": "09/06/2023"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a",
+									"disabled": true
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Issuer User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportDate\", \"reportType\", \"organizationId\", \"locale\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"modifiedBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment')\r",
+									"\r",
+									"pm.environment.set('currentdate', moment().format((\"DD/MM/yyyy\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{issuer_user}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Script.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Issuer-Reports{{ran}}&ReportDate=09/06/2023&Locale=en-gb&Remark=New report uploaded today by Amelia Huffington for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Issuer-Reports{{ran}}"
+								},
+								{
+									"key": "ReportDate",
+									"value": "09/06/2023"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a",
+									"disabled": true
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Acquirer Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportDate\", \"reportType\", \"organizationId\", \"locale\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"modifiedBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment')\r",
+									"\r",
+									"pm.environment.set('currentdate', moment().format((\"DD/MM/yyyy\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{acquirer_admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Script.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Acquirer -Reports{{ran}}&ReportDate=09/06/2023&Locale=en-gb&Remark=New report uploaded today by Amelia Huffington for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Acquirer -Reports{{ran}}"
+								},
+								{
+									"key": "ReportDate",
+									"value": "09/06/2023"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a",
+									"disabled": true
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Acquirer User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportDate\", \"reportType\", \"organizationId\", \"locale\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"modifiedBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment')\r",
+									"\r",
+									"pm.environment.set('currentdate', moment().format((\"DD/MM/yyyy\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{acquirer_user}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Script.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Acquirer -Newsletter{{ran}}&ReportDate=09/06/2023&Locale=en-gb&Remark=New report uploaded today by Amelia Huffington for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Acquirer -Newsletter{{ran}}"
+								},
+								{
+									"key": "ReportDate",
+									"value": "09/06/2023"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a",
+									"disabled": true
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Perso Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportDate\", \"reportType\", \"organizationId\", \"locale\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"modifiedBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment')\r",
+									"\r",
+									"pm.environment.set('currentdate', moment().format((\"DD/MM/yyyy\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{perso_admin}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Script.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Perso -Reports{{ran}}&ReportDate=09/06/2023&Locale=en-gb&Remark=New report uploaded today by Amelia Huffington for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Perso -Reports{{ran}}"
+								},
+								{
+									"key": "ReportDate",
+									"value": "09/06/2023"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a",
+									"disabled": true
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Perso User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportDate\", \"reportType\", \"organizationId\", \"locale\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"modifiedBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment')\r",
+									"\r",
+									"pm.environment.set('currentdate', moment().format((\"DD/MM/yyyy\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{perso_user}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Script.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Perso - Newsletters-{{ran}}&ReportDate=09/06/2023&Locale=en-gb&Remark=New report uploaded today by Amelia Huffington for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Perso - Newsletters-{{ran}}"
+								},
+								{
+									"key": "ReportDate",
+									"value": "09/06/2023"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a",
+									"disabled": true
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Without Report Title",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"The Title field is required.\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Script.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?ReportDate=09/05/2022&Locale=en-gb&Remark=New report uploaded today by Amelia Huffington for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Huffington Letters",
+									"disabled": true
+								},
+								{
+									"key": "ReportDate",
+									"value": "09/05/2022"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a",
+									"disabled": true
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Without Remarks",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportDate\", \"reportType\", \"organizationId\", \"locale\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"modifiedBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment')\r",
+									"\r",
+									"pm.environment.set('currentdate', moment().format((\"DD/MM/yyyy\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Script.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Huffington Letters&ReportDate=24/04/2023&Locale=en-gb",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Huffington Letters"
+								},
+								{
+									"key": "ReportDate",
+									"value": "09/05/202",
+									"disabled": true
+								},
+								{
+									"key": "ReportDate",
+									"value": "24/04/2023"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a",
+									"disabled": true
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Without Organization Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportDate\", \"reportType\", \"organizationId\", \"locale\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"modifiedBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment')\r",
+									"\r",
+									"pm.environment.set('currentdate', moment().format((\"DD/MM/yyyy\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Script.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Huffington Letters&ReportDate=09/05/2023&Locale=en-gb&Remark=New report uploaded today by Amelia Huffington for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Huffington Letters"
+								},
+								{
+									"key": "ReportDate",
+									"value": "09/05/2023"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a",
+									"disabled": true
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Without Report Date",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"The ReportDate field is required.\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Script.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Huffington Letters&ReportDate=&Locale=en-gb&Remark=New report uploaded today by Amelia Huffington for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Huffington Letters"
+								},
+								{
+									"key": "ReportDate",
+									"value": ""
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a",
+									"disabled": true
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Without Report Date Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"ReportDate isn't valid a format (dd/MM/yyyy)\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Script.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Huffington Dates&ReportDate=14-06-2022&Locale=en-gb&Remark=New report uploaded today by Amelia Huffington for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Huffington Dates"
+								},
+								{
+									"key": "ReportDate",
+									"value": "14-06-2022"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a",
+									"disabled": true
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Without File",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"No document was attached, please attach a valid document\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Script.txt",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Huffington Letters&ReportDate=09%2F05%2F2022&OrganizationId=68c668fe-d8aa-4924-b399-9f671d66c56a&Locale=en-gb&Remark=New report uploaded today by Amelia Huffington for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Huffington Letters"
+								},
+								{
+									"key": "ReportDate",
+									"value": "09%2F05%2F2022"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a"
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Invalid File Type",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Error\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"The document format is not supported\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "Scheme Rules.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Huffington Letters&ReportDate=09%2F05%2F2022&OrganizationId=68c668fe-d8aa-4924-b399-9f671d66c56a&Locale=en-gb&Remark=New report uploaded today by Amelia Huffington for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Huffington Letters"
+								},
+								{
+									"key": "ReportDate",
+									"value": "09%2F05%2F2022"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a"
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Report - Large File",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportDate\", \"reportType\", \"organizationId\", \"locale\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"modifiedBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var moment = require('moment')\r",
+									"\r",
+									"pm.environment.set('currentdate', moment().format((\"DD/MM/yyyy\")));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "File",
+									"type": "file",
+									"src": "VMMR Sample Report 2.xlsx"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/AddReport?Title=Huffington  Xcels{{ran}}&ReportDate=09/05/2022&OrganizationId=68c668fe-d8aa-4924-b399-9f671d66c56a&Locale=en-gb&Remark=New report uploaded today by Amelia Huffington for Scheme Management",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"AddReport"
+							],
+							"query": [
+								{
+									"key": "Title",
+									"value": "Huffington  Xcels{{ran}}"
+								},
+								{
+									"key": "ReportDate",
+									"value": "09/05/2022"
+								},
+								{
+									"key": "OrganizationId",
+									"value": "68c668fe-d8aa-4924-b399-9f671d66c56a"
+								},
+								{
+									"key": "Locale",
+									"value": "en-gb"
+								},
+								{
+									"key": "Remark",
+									"value": "New report uploaded today by Amelia Huffington for Scheme Management"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Reports - Corp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportType\", \"mediaResourceId\", \"caption\", \"fileName\", \"fileExtension\", \"fileSize\", \"relativePath\", \"locallanguage\", \"resourceType\", \"reportDate\", \"organization\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/GetReportsforOrganization",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"GetReportsforOrganization"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "StartDate",
+									"value": "11/03/2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11/03/2022",
+									"disabled": true
+								},
+								{
+									"key": "StartDate",
+									"value": "10%2F05%2F2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11%2F05%2F2022",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports by keyword - Corp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportType\", \"mediaResourceId\", \"caption\", \"fileName\", \"fileExtension\", \"fileSize\", \"relativePath\", \"locallanguage\", \"resourceType\", \"reportDate\", \"organization\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/GetReportsforOrganization?keyword=Report",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"GetReportsforOrganization"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "StartDate",
+									"value": "11/03/2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11/03/2022",
+									"disabled": true
+								},
+								{
+									"key": "keyword",
+									"value": "Report"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports By Date/Today - Corp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportType\", \"mediaResourceId\", \"caption\", \"fileName\", \"fileExtension\", \"fileSize\", \"relativePath\", \"locallanguage\", \"resourceType\", \"reportDate\", \"organization\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/GetReportsforOrganization?StartDate={{currentdate}}&EndDate={{currentdate}}",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"GetReportsforOrganization"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "StartDate",
+									"value": "{{currentdate}}"
+								},
+								{
+									"key": "EndDate",
+									"value": "{{currentdate}}"
+								},
+								{
+									"key": "StartDate",
+									"value": "10%2F05%2F2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11%2F05%2F2022",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports By Date/Yesterday - Corp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/GetReportsforOrganization?StartDate=21/11/2022&EndDate=21/11/2022",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"GetReportsforOrganization"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "StartDate",
+									"value": "21/11/2022"
+								},
+								{
+									"key": "EndDate",
+									"value": "21/11/2022"
+								},
+								{
+									"key": "StartDate",
+									"value": "10%2F05%2F2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11%2F05%2F2022",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports By Date/Last 30 days -Corp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportType\", \"mediaResourceId\", \"caption\", \"fileName\", \"fileExtension\", \"fileSize\", \"relativePath\", \"locallanguage\", \"resourceType\", \"reportDate\", \"organization\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/GetReportsforOrganization?pageSize=100&StartDate=21/10/2022&EndDate=22/11/2022",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"GetReportsforOrganization"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100"
+								},
+								{
+									"key": "StartDate",
+									"value": "21/10/2022"
+								},
+								{
+									"key": "EndDate",
+									"value": "22/11/2022"
+								},
+								{
+									"key": "StartDate",
+									"value": "10%2F05%2F2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11%2F05%2F2022",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports By Date/Last 7 days -Corp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportType\", \"mediaResourceId\", \"caption\", \"fileName\", \"fileExtension\", \"fileSize\", \"relativePath\", \"locallanguage\", \"resourceType\", \"reportDate\", \"organization\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/GetReportsforOrganization?pageSize=100&StartDate=15/11/2022&EndDate=22/11/2022",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"GetReportsforOrganization"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100"
+								},
+								{
+									"key": "StartDate",
+									"value": "15/11/2022"
+								},
+								{
+									"key": "EndDate",
+									"value": "22/11/2022"
+								},
+								{
+									"key": "StartDate",
+									"value": "10%2F05%2F2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11%2F05%2F2022",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports By Date/This Month - Corp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportType\", \"mediaResourceId\", \"caption\", \"fileName\", \"fileExtension\", \"fileSize\", \"relativePath\", \"locallanguage\", \"resourceType\", \"reportDate\", \"organization\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/GetReportsforOrganization?pageSize=100&StartDate=01/11/2022&EndDate=30/11/2022",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"GetReportsforOrganization"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100"
+								},
+								{
+									"key": "StartDate",
+									"value": "01/11/2022"
+								},
+								{
+									"key": "EndDate",
+									"value": "30/11/2022"
+								},
+								{
+									"key": "StartDate",
+									"value": "10%2F05%2F2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11%2F05%2F2022",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports By Date/Last Month - Corp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/GetReportsforOrganization?pageSize=100&StartDate=01/10/2022&EndDate=30/10/2022",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"GetReportsforOrganization"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100"
+								},
+								{
+									"key": "StartDate",
+									"value": "01/10/2022"
+								},
+								{
+									"key": "EndDate",
+									"value": "30/10/2022"
+								},
+								{
+									"key": "StartDate",
+									"value": "10%2F05%2F2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11%2F05%2F2022",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports By Date/Custom Range - Corp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportType\", \"mediaResourceId\", \"caption\", \"fileName\", \"fileExtension\", \"fileSize\", \"relativePath\", \"locallanguage\", \"resourceType\", \"reportDate\", \"organization\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/GetReportsforOrganization?pageSize=100&StartDate=15/11/2022&EndDate=22/11/2022",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"GetReportsforOrganization"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "100"
+								},
+								{
+									"key": "StartDate",
+									"value": "15/11/2022"
+								},
+								{
+									"key": "EndDate",
+									"value": "22/11/2022"
+								},
+								{
+									"key": "StartDate",
+									"value": "10%2F05%2F2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11%2F05%2F2022",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports - Corp No Results",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/GetReportsforOrganization?StartDate=11/04/2022&EndDate=11/04/2022",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"GetReportsforOrganization"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "StartDate",
+									"value": "11/04/2022"
+								},
+								{
+									"key": "EndDate",
+									"value": "11/04/2022"
+								},
+								{
+									"key": "StartDate",
+									"value": "10%2F05%2F2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11%2F05%2F2022",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports/Without Dates - Corp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/GetReportsforOrganization",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"GetReportsforOrganization"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "StartDate",
+									"value": "11/04/2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11/04/2022",
+									"disabled": true
+								},
+								{
+									"key": "StartDate",
+									"value": "10%2F05%2F2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11%2F05%2F2022",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports/Invalid Date Format - Corp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Date Format Error Description\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"StartDate isn't valid a format (dd/MM/yyyy)\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/GetReportsforOrganization?StartDate=2022/07/01&EndDate=2022/07/20",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"GetReportsforOrganization"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "StartDate",
+									"value": "2022/07/01"
+								},
+								{
+									"key": "EndDate",
+									"value": "2022/07/20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports/Invalid EndDate Format - Corp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Date Format Error Description\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"EndDate isn't valid a format (dd/MM/yyyy)\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{corp-accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/corporate/Reports/GetReportsforOrganization?StartDate=01/07/2022&EndDate=2022/07/20",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"corporate",
+								"Reports",
+								"GetReportsforOrganization"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "StartDate",
+									"value": "01/07/2022"
+								},
+								{
+									"key": "EndDate",
+									"value": "2022/07/20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Reports - Verve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportType\", \"mediaResourceId\", \"caption\", \"fileName\", \"fileExtension\", \"fileSize\", \"relativePath\", \"locallanguage\", \"resourceType\", \"reportDate\", \"organization\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{verve_accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/isw/Reports/GetReports",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"isw",
+								"Reports",
+								"GetReports"
+							],
+							"query": [
+								{
+									"key": "StartDate",
+									"value": "11/05/2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11/05/2022",
+									"disabled": true
+								},
+								{
+									"key": "PageSize",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "Keyword",
+									"value": "Test",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports by Keyword - Verve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportType\", \"mediaResourceId\", \"caption\", \"fileName\", \"fileExtension\", \"fileSize\", \"relativePath\", \"locallanguage\", \"resourceType\", \"reportDate\", \"organization\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"rowNo\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{verve_accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/isw/Reports/GetReports?Keyword=News",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"isw",
+								"Reports",
+								"GetReports"
+							],
+							"query": [
+								{
+									"key": "StartDate",
+									"value": "11/05/2022",
+									"disabled": true
+								},
+								{
+									"key": "EndDate",
+									"value": "11/05/2022",
+									"disabled": true
+								},
+								{
+									"key": "PageSize",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "Keyword",
+									"value": "News"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reports By date - Verve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"payload\", \"totalCount\", \"responseCode\", \"errors\", \"hasErrors\", \"code\", \"description\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Payload Parameters\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"title\", \"reportType\", \"mediaResourceId\", \"caption\", \"fileName\", \"fileExtension\", \"fileSize\", \"relativePath\", \"locallanguage\", \"resourceType\", \"reportDate\", \"organization\", \"remarks\", \"id\", \"payload\", \"createdOn\", \"modifiedOn\", \"createdBy\", \"rowNo\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{verve_accesstoken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://verve-access-service.k8.isw.la/api/isw/Reports/GetReports?StartDate=11/05/2022&EndDate={{currentdate}}",
+							"protocol": "https",
+							"host": [
+								"verve-access-service",
+								"k8",
+								"isw",
+								"la"
+							],
+							"path": [
+								"api",
+								"isw",
+								"Reports",
+								"GetReports"
+							],
+							"query": [
+								{
+									"key": "PageIndex",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "PageSize",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "StartDate",
+									"value": "11/05/2022"
+								},
+								{
+									"key": "EndDate",
+									"value": "{{currentdate}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

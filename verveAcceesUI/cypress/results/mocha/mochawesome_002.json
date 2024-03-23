@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-12-20T15:00:31.323Z",
+    "end": "2022-12-20T15:01:19.863Z",
+    "duration": 48540,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "384a73d9-fbfb-46f6-a153-0a3cfc12d5a1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\1-getting-started\\decal.cy.js",
+      "file": "cypress\\e2e\\1-getting-started\\decal.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9ff3d85d-d989-482c-bd61-5feda455130a",
+          "title": "visit Verve Access",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should test Vmmr buttn on the sidemenu with search aand filter",
+              "fullTitle": "visit Verve Access should test Vmmr buttn on the sidemenu with search aand filter",
+              "timedOut": null,
+              "duration": 46742,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//cy.get('.ant-dropdown-link > .sidebar-svg').click()\n//cy.get('.red').click()\ncy.url().should('include', 'admin');\ncy.reload();\ncy.get('form').within($form => {\n  cy.get('input[type=\"email\"]').type('phoenix.shed-okara@interswitchgroup.com');\n  cy.get('input[type=\"password\"]').type('Mixmax$900');\n  cy.get('#login').click({\n    timeout: 2000\n  });\n  cy.wait(18000); //cy.root().submit({timeout : 2000})\n});\ncy.get('#burger-cont').click(); //cy.get('#sidebar > .sidebar-container > #side-nav > .isw-sideBarNav > :nth-child(3) > .isw-sideBarNavLink').scrollTo('bottom')\ncy.get('#sidebar > .sidebar-container > #side-nav > .isw-sideBarNav > :nth-child(7) > .isw-sideBarNavLink > .isw-sideBarNavLabel').click();\ncy.wait(8000);\ncy.get('.title').should('be.visible');\ncy.get('.add-button-container > .d-flx').click();\ncy.get('input[name=\"fileName\"]').type('Verve Global'); //cy.get('.placeholder').click()\n//cy.contains('Add File').dblclick(20, -50,{force : true})\n//cy.get('input[accept=\".png, .jpg\"]').attachFile('files/Verve.jpg')\ncy.get('#createArtwork').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#burger-cont`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#burger-cont`, but never found it.\n    at Context.eval (https://verve-access-customer.k8.isw.la/__cypress/tests?p=cypress\\e2e\\1-getting-started\\decal.cy.js:122:8)",
+                "diff": null
+              },
+              "uuid": "fb5eafb8-c924-4e17-bba6-88c9f18eb701",
+              "parentUUID": "9ff3d85d-d989-482c-bd61-5feda455130a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "fb5eafb8-c924-4e17-bba6-88c9f18eb701"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 46742,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

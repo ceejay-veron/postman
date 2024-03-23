@@ -1,0 +1,100 @@
+﻿mth,source_node_name,sink_node_name,message_type,Bin,acquiring_inst_id_code,Response,Channel,Tran_Category,volume,tran_amount,Currency
+202104,ATMsrc,UBNSWTsnk,0200,506180,NULL,Successful,ATM,Bill-Payments and Transfers,2,37000,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,506166,Successful,POS,Bill-Payments and Transfers,9024,138899555.6,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506105,NULL,Declined,ATM,Balance enquiries and Pin change,102,0,USD
+202104,ATMsrc,UBNSWTsnk,0200,506118,NULL,Successful,ATM,Bill-Payments and Transfers,3286,175056311.9,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50612402097,Declined,ATM,Cash withdrawal and Cardholder transfers,19,78500,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50612402042,Successful,ATM,Bill-Payments and Transfers,13,357200,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,606079,Declined,ATM,Cash withdrawal and Cardholder transfers,2,0,NGN
+202104,ATMsrc,UBNSEGsnk,0200,506123,NULL,Declined,ATM,Balance enquiries and Pin change,475751,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0420,506123,639138,Declined,ATM,Bill-Payments and Transfers,1132,96617293,NGN
+202104,ATMsrc,UBNSWTsnk,0420,506136,NULL,Successful,ATM,Balance enquiries and Pin change,12,0,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506137,NULL,Declined,ATM,Cash withdrawal and Cardholder transfers,2210,22243050,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506107,NULL,Successful,ATM,Balance enquiries and Pin change,18,0,USD
+202104,ATMsrc,UBNSWTsnk,0200,506106,NULL,Declined,ATM,Balance enquiries and Pin change,3,0,USD
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,789002,Successful,ATM,Cash withdrawal and Cardholder transfers,17,137000,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506106,NULL,Successful,ATM,Bill-Payments and Transfers,1096,18164791.44,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,627805,Declined,ATM,Balance enquiries and Pin change,542,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50617355222,Successful,ATM,Balance enquiries and Pin change,17,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50613602011,Declined,ATM,Cash withdrawal and Cardholder transfers,22,182000,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,639138,Successful,ATM,Balance enquiries and Pin change,16,0,USD
+202104,ATMsrc,UBNSWTsnk,0420,506119,NULL,Successful,ATM,Balance enquiries and Pin change,3546,0,NGN
+202104,ATMsrc,UBNSWTsnk,0420,506118,NULL,Successful,ATM,Balance enquiries and Pin change,13,0,USD
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,627805,Successful,ATM,Bill-Payments and Transfers,1377,67298876.25,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,627787,Declined,WEB,Balance enquiries and Pin change,6,0,NGN
+202104,AGENCYSrc,UBNSWTsnk,0200,506121,606079,Successful,POS,Bill-Payments and Transfers,34,876750,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,506137,Declined,ATM,Cash withdrawal and Cardholder transfers,387,0,NGN
+202104,AGENCYSrc,UBNSWTsnk,0420,506177,606079,Successful,POS,Bill-Payments and Transfers,36,785670,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0420,506123,627805,Declined,ATM,Cash withdrawal and Cardholder transfers,1003,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50612402015,Declined,ATM,Balance enquiries and Pin change,44,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,506150,Declined,ATM,Balance enquiries and Pin change,38,0,NGN
+202104,AGENCYSrc,UBNSWTsnk,0200,506105,606079,Declined,POS,Bill-Payments and Transfers,77689,1132344982,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50612402015,Declined,ATM,Balance enquiries and Pin change,12,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50612402083,Declined,ATM,Balance enquiries and Pin change,1,0,USD
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,589019,Successful,POS,Bill-Payments and Transfers,790304,11259794017,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,639139,Declined,POS,Cash withdrawal and Cardholder transfers,31,364500,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,506144,Successful,ATM,Balance enquiries and Pin change,47,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50612402015,Declined,ATM,Bill-Payments and Transfers,30,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,627787,Declined,POS,Purchase,1,4000,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,627629,Successful,POS,Bill-Payments and Transfers,91826,1120226530,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,903708,Declined,ATM,Purchase,45,0,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506143,NULL,Successful,ATM,Balance enquiries and Pin change,104,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,639609,Declined,ATM,Balance enquiries and Pin change,877,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50612402004,Declined,ATM,Bill-Payments and Transfers,6,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,506163,Declined,ATM,Bill-Payments and Transfers,7,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,300313,Successful,ATM,Balance enquiries and Pin change,1,0,GHS
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50612402060,Declined,ATM,Balance enquiries and Pin change,4,0,NGN
+202104,UBNSWTsrc,UBNSWTsnk,0200,506123,602980,Declined,POS,Bill-Payments and Transfers,224,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,120011,Successful,ATM,Cash withdrawal and Cardholder transfers,28,5120,GHS
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,589019,Successful,WEB,Purchase,851,18216387,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50612402044,Declined,ATM,Balance enquiries and Pin change,2,0,NGN
+202104,UBNSWTsrc,NIL,0200,506173,627787,Declined,ATM,Balance enquiries and Pin change,1,0,USD
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50612402060,Declined,ATM,Cash withdrawal and Cardholder transfers,48,322000,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,639139,Declined,POS,Purchase,3950,0,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506117,NULL,Successful,ATM,Cash withdrawal and Cardholder transfers,37716,294927285,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,506166,Declined,ATM,Purchase,13,3154,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,111111,Declined,WEB,Balance enquiries and Pin change,7,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,627821,Successful,POS,Purchase,41184,251620626,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506125,NULL,Declined,ATM,Cash withdrawal and Cardholder transfers,92,714000,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,639138,Declined,POS,Cash withdrawal and Cardholder transfers,16,820300,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,627787,Declined,POS,Purchase,18123,271036000.7,NGN
+202104,ATMsrc,NIL,0200,506109,NULL,Declined,ATM,Balance enquiries and Pin change,54,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,589019,Successful,ATM,Purchase,1650,586261,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,602980,Declined,WEB,Purchase,12,362023,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,627629,Successful,ATM,Balance enquiries and Pin change,3,0,USD
+202104,ATMsrc,NIL,0200,506123,NULL,Declined,ATM,Bill-Payments and Transfers,1,1,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506119,NULL,Successful,ATM,Bill-Payments and Transfers,1242,84000152.18,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506123,NULL,Declined,ATM,Bill-Payments and Transfers,80,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,627805,Declined,POS,Bill-Payments and Transfers,1516,26748112.01,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506110,NULL,Declined,ATM,Balance enquiries and Pin change,1,0,USD
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,506180,Successful,ATM,Bill-Payments and Transfers,33,861200,NGN
+202104,AGENCYSrc,UBNSWTsnk,0200,551609,606079,Declined,POS,Bill-Payments and Transfers,3,27000,NGN
+202104,ATMsrc,KimonoATMsnk,0200,506123,NULL,Declined,ATM,Balance enquiries and Pin change,5053,0,USD
+202104,ATMsrc,UBNSWTsnk,0200,506107,NULL,Successful,ATM,Bill-Payments and Transfers,48,584015,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506106,NULL,Successful,ATM,Purchase,398,123480,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,627480,Declined,POS,Purchase,114669,738441061.1,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,627629,Declined,POS,Purchase,4,2228422.22,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,639609,Successful,ATM,Purchase,542,286712,NGN
+202104,ATMsrc,UPVASsnk,0200,506120,NULL,Declined,ATM,Purchase,11,2600,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,639139,Successful,POS,Purchase,1,2100,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506180,NULL,Declined,ATM,Cash withdrawal and Cardholder transfers,2,0,NGN
+202104,AGENCYSrc,UBNSWTsnk,0200,506102,606079,Declined,POS,Bill-Payments and Transfers,40190,465094744.3,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50613602005,Declined,ATM,Cash withdrawal and Cardholder transfers,1,1000,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,628009,Declined,ATM,Purchase,246,66600.46,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,589019,Declined,ATM,Cash withdrawal and Cardholder transfers,5291,0,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506144,NULL,Successful,ATM,Balance enquiries and Pin change,1,0,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506105,NULL,Successful,ATM,Cash withdrawal and Cardholder transfers,438455,3112606800,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506106,NULL,Declined,ATM,Purchase,150,56745.8,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50612402097,Successful,ATM,Bill-Payments and Transfers,8,731000,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50612402004,Declined,ATM,Balance enquiries and Pin change,33,0,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,627805,Successful,ATM,Purchase,380,138900,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,606079,Successful,ATM,Balance enquiries and Pin change,4,0,NGN
+202104,AGENCYSrc,UBNSWTsnk,0200,506127,606079,Declined,POS,Bill-Payments and Transfers,10,391550,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506120,NULL,Successful,ATM,Bill-Payments and Transfers,430,7403712,NGN
+202104,ATMsrc,ESBsnk,0200,506173,NULL,Declined,ATM,Purchase,14,0,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506120,NULL,Declined,ATM,Bill-Payments and Transfers,1,0,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506124,NULL,Declined,ATM,Cash withdrawal and Cardholder transfers,320,2097000,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,506180,Declined,WEB,Bill-Payments and Transfers,1,0,NGN
+202104,ATMsrc,UBNSWTsnk,0200,506109,NULL,Successful,ATM,Balance enquiries and Pin change,56,0,USD
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,506150,Successful,ATM,Cash withdrawal and Cardholder transfers,18134,187057528.9,NGN
+202104,UBNSWTsrc,UBNPOSFLXsnk,0200,506123,50613602016,Declined,ATM,Bill-Payments and Transfers,3,0,NGN

@@ -1,0 +1,47 @@
+
+Script to spool out Monthly VMMR report
+
+
+use postilion_office
+
+DECLARE @startDate VARCHAR (30),
+@endDate VARCHAR (30),
+@sink_node_isw_ss VARCHAR (30),
+@sink_node_host VARCHAR (30),
+@acquirer_id VARCHAR(30)
+
+
+set @startDate = '20200501'				---- enter the first day of the reporting month
+set @endDate = '20200601'				---- enter the first day of the next month
+
+
+
+select CONVERT(CHAR(6), datetime_req, 112) as mth, source_node_name,sink_node_name,message_type,left(pan,6) as Bin,acquiring_inst_id_code,
+case when rsp_code_rsp in ('00','10','11','08','16') and (rsp_code_req is null or rsp_code_req in ('00','10','11','08','16')) and tran_reversed = '0' then 'Successful' else 'Declined' end as Response, 
+case left(terminal_id,1) when '1' then 'ATM' when '0' then 'ATM' when '2' then 'POS' when '3' then 'WEB' when '4' then 'MOBILE' else (case  when pos_terminal_type = '02' then 'ATM' when pos_terminal_type = '01' then 'POS' when pos_terminal_type like '2%' then 'MOBILE' else 'WEB' end) end as Channel, 
+case when tran_type in ('01','40') then 'Cash withdrawal and Cardholder transfers' when tran_type in ('31','92') then 'Balance enquiries and Pin change' when tran_type ='00' then 'Purchase' when tran_type = '50' then 'Bill-Payments and Transfers' end as Tran_Category, 
+count(*) as volume, sum (dbo.formatAmount(tran_amount_req, tran_currency_code)) AS tran_amount, 
+dbo.currencyAlphaCode(tran_currency_code) as Currency
+
+from post_tran pt(nolock) join post_tran_cust ptc (nolock)
+on pt.post_tran_cust_id = ptc.post_tran_cust_id
+
+Where datetime_req >= @startDate
+and datetime_req < @endDate
+
+and (left(ptc.pan,3) = '506' or left(ptc.pan,6) in ('519615','539945','528668','528649','521090','551609','559453'))
+
+
+and tran_type in ('01','31','92','40','00','50')
+
+
+and (tran_completed=1)
+
+and tran_postilion_originated = '0'
+
+group by CONVERT(CHAR(6), datetime_req, 112), source_node_name,sink_node_name,message_type,left(pan,6),acquiring_inst_id_code,
+
+case when rsp_code_rsp in ('00','10','11','08','16') and (rsp_code_req is null or rsp_code_req in ('00','10','11','08','16')) and tran_reversed = '0' then 'Successful' else 'Declined' end, 
+case left(terminal_id,1) when '1' then 'ATM' when '0' then 'ATM' when '2' then 'POS' when '3' then 'WEB' when '4' then 'MOBILE' else (case  when pos_terminal_type = '02' then 'ATM' when pos_terminal_type = '01' then 'POS' when pos_terminal_type like '2%' then 'MOBILE' else 'WEB' end) end, 
+case when tran_type in ('01','40') then 'Cash withdrawal and Cardholder transfers' when tran_type in ('31','92') then 'Balance enquiries and Pin change' when tran_type ='00' then 'Purchase' when tran_type = '50' then 'Bill-Payments and Transfers' end,
+dbo.currencyAlphaCode(tran_currency_code)
